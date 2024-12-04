@@ -103,3 +103,8 @@ body {
     justify-self: start;
   }
 }
+
+.col-3 .time-item,
+.col-6 .date-item {
+  margin-bottom: 30px;
+}
