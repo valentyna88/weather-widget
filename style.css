@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+*,
+*:is(::before, ::after) {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --pannel-bg-light: hsla(220, 78%, 29%, 0.3);
+  --pannel-bg-dark: hsla(220, 23%, 65%, 0.3);
+  --widget-bg-light: rgba();
+  --widget-bg-dark: #08244f;
+  --text-color-light: #ffffff;
+  --text-color-dark: #e1dede;
+}
+
+body {
+  font-family: Inter, serif;
+  color-scheme: light dark;
+  background-image: url(assets/bg-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.widget {
+  place-self: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 423px;
+  padding: 40px;
+  background: light-dark(var(--widget-bg-light), var(--widget-bg-dark));
+  color: light-dark(var(--text-color-light), var(--text-color-dark));
+  border-radius: 40px;
+  gap: 20px;
+  container-type: inline-size;
+  backdrop-filter: blur(16px);
+  box-shadow: 5px 5px 20px rgba(31, 87, 10, 0.2),
+    -5px -5px 20px rgba(255, 249, 222, 0.2);
+  border-left: 1px solid rgba(255, 249, 222, 0.2);
+  border-top: 1px solid rgba(255, 249, 222, 0.2);
+  border-right: 1px solid rgba(31, 87, 10, 0.2);
+  border-bottom: 1px solid rgba(31, 87, 10, 0.2);
+}
+
+.info-pannel {
+  display: grid;
+  grid-template-columns: subgrid; /* наслідування сітки батьківського елемента */
+  grid-column: 1/-1;
+  gap: 12px;
+}
+
+.col-3 {
+  grid-column: span 3; /* кожен елемент займає 3 колонки */
+}
+
+.col-4 {
+  grid-column: span 4;
+}
+
+.col-6 {
+  grid-column: span 6;
+}
+
+.col-12 {
+  grid-column: span 12;
+}
+.self-center {
+  justify-self: center;
+}
+.self-end {
+  justify-self: end;
+}
+
+.info-pannel {
+  background-color: light-dark(var(--pannel-bg-light), var(--pannel-bg-dark));
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.weather-img {
+  grid-column: span 12;
+  justify-self: center;
+  @container (width > 480px) {
+    grid-column: span 6;
+    grid-row: span 6;
+  }
+}
+
+.temperature {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+:is(.temperature, .weather-desc) {
+  grid-column: span 12;
+  justify-self: center;
+  @container (width > 480px) {
+    grid-column: 7 / span 6;
+    justify-self: start;
+  }
+}
