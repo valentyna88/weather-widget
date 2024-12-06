@@ -27,6 +27,7 @@ body {
 }
 
 .widget {
+  position: relative;
   place-self: center;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -44,6 +45,14 @@ body {
   border-top: 1px solid rgba(255, 249, 222, 0.2);
   border-right: 1px solid rgba(31, 87, 10, 0.2);
   border-bottom: 1px solid rgba(31, 87, 10, 0.2);
+}
+
+.bell {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 24px;
+  height: auto;
 }
 
 .info-pannel {
